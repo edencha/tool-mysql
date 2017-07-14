@@ -1,45 +1,45 @@
 /*
  * createTable input format
 {
-		"tableName": {table_name}, //required
-		"character": {
+	"tableName": {table_name}, //required
+	"character": {
+		"set": {charset}, //binary | utf8(default) ...
+		"collate": {collate} //utf8_ganeral_ci(default) | latin1_general_cs ...
+	},
+	"engine": {your table engine} //InnoDB(default) | MyISAM | Memory | CSV | Archive | Blackhole | Merge | Federated | Example https://dev.mysql.com/doc/refman/5.7/en/storage-engines.html
+	"comment": {your table comment},
+	"reference": [
+		{
+			"tableName": {reference_table_name},
+			"columns": [{reference_column_name1}, {reference_column_name2}...],
+			"keyColumns": [{key_column_name1}, {key_column_name2}...],
+			"options": [
+				{
+					"actionName": {action name}, //DELETE | UPDATE
+					"optionValue": {option value}//RESTRICT | CASCADE | SET NULL | NO ACTION | SET DEFAULT
+				}
+			]
+		}
+	],
+	"columnData": [
+		{
+			"name": {column name}, //required
+			"type": { //string | object
+				"name": {type}, //INT(default), INTEGER, BIGINT, VARCHAR, DATE, TIMESTAMP...
+				"size": {type size} (default size is 11)
+			},
+			"character": {
 				"set": {charset}, //binary | utf8(default) ...
 				"collate": {collate} //utf8_ganeral_ci(default) | latin1_general_cs ...
-		},
-		"engine": {your table engine} //InnoDB(default) | MyISAM | Memory | CSV | Archive | Blackhole | Merge | Federated | Example https://dev.mysql.com/doc/refman/5.7/en/storage-engines.html
-		"comment": {your table comment},
-		"reference": [
-				{
-						"tableName": {reference_table_name},
-						"columns": [{reference_column_name1}, {reference_column_name2}...],
-						"keyColumns": [{key_column_name1}, {key_column_name2}...],
-						"options": [
-								{
-										"actionName": {action name}, //DELETE | UPDATE
-										"optionValue": {option value}//RESTRICT | CASCADE | SET NULL | NO ACTION | SET DEFAULT
-								}
-						]
-				}
-		],
-		"columnData": [
-				{
-						"name": {column name}, //required
-						"type": { //string | object
-								"name": {type}, //INT(default), INTEGER, BIGINT, VARCHAR, DATE, TIMESTAMP...
-								"size": {type size} (default size is 11)
-						},
-						"character": {
-								"set": {charset}, //binary | utf8(default) ...
-								"collate": {collate} //utf8_ganeral_ci(default) | latin1_general_cs ...
-						},
-						"primaryKey": {primary key flag}, //0(default) | 1
-						"default": {default value}, 
-						"null": {default null flag}, //0(default) | 1
-						"ai": {auto increment flag}, //0(default) | 1
-						"index": {column index flag}, //0(default) | 1
-						"comment": {your column comment}
-				}
-		]
+			},
+			"primaryKey": {primary key flag}, //0(default) | 1
+			"default": {default value}, 
+			"null": {default null flag}, //0(default) | 1
+			"ai": {auto increment flag}, //0(default) | 1
+			"index": {column index flag}, //0(default) | 1
+			"comment": {your column comment}
+		}
+	]
 }
 */
 var createTable = function (tableConfig) {
