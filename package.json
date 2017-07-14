@@ -1,0 +1,26 @@
+{
+  "name": "tool-mysql",
+  "version": "0.0.2",
+  "description": "mysql nodejs tool",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edencha/tool-mysql.git"
+  },
+  "keywords": [
+    "mysql",
+    "nodejs",
+    "node",
+    "database",
+    "rds"
+  ],
+  "author": "eden <eden@nurigo.net>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/edencha/tool-mysql/issues"
+  },
+  "homepage": "https://github.com/edencha/tool-mysql#readme"
+}
